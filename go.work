@@ -1,0 +1,8 @@
+go 1.22
+
+use (
+	./hub/collector-engine
+	./hub/log-pipeline
+	./hub/alert-engine
+	./hub/api-server
+)
