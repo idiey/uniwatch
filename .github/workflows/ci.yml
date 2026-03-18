@@ -1,0 +1,24 @@
+name: CI
+on:
+  push:
+    branches: [develop, "feature/**"]
+  pull_request:
+    branches: [develop, main]
+jobs:
+  build-and-test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-go@v5
+        with:
+          go-version: "1.22"
+      - name: Tidy modules
+        run: |
+          cd hub/collector-engine && go mod tidy
+          cd hub/log-pipeline     && go mod tidy
+          cd hub/alert-engine     && go mod tidy
+          cd hub/api-server       && go mod tidy
+      - name: Build
+        run: make build
+      - name: Test
+        run: make test-go
