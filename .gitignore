@@ -1,0 +1,22 @@
+# Worktrees
+.worktrees/
+
+# Go binaries
+*.exe
+*.exe~
+*.dll
+*.so
+*.dylib
+
+# Build output
+dist/
+bin/
+
+# IDE
+.idea/
+.vscode/
+
+# Env
+.env
+.env.*
+!.env.example
