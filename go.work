@@ -1,8 +1,7 @@
-go 1.22
+go 1.23
 
 use (
+	./agent
 	./hub/collector-engine
-	./hub/log-pipeline
-	./hub/alert-engine
-	./hub/api-server
+	./sidecar
 )
